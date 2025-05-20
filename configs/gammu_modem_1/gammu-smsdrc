@@ -4,8 +4,8 @@ connection = at
 
 [smsd]
 Service = sql
-Driver = native_pgsql
-Host = 172.18.0.2
+Driver = native_mysql
+Host = 172.18.0.2:3306
 User = smsuser
 Password = smspass
 Database = sms
