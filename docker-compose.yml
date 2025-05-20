@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
- mysql:
+  mysql:
     image: mysql:8.0
     container_name: gammu_mysql
     restart: always
@@ -22,9 +22,9 @@ services:
     container_name: gammu_modem_1
     restart: always
     depends_on:
-      - postgres
+      - mysql
     devices:
-         - /dev/serial/by-id/usb-HUAWEI_Technology_HUAWEI_Mobile-if00-port0:/dev/serial/by-id/usb-HUAWEI_Technology_HUAWEI_Mobile-if00-port0
+      - /dev/serial/by-id/usb-HUAWEI_Technology_HUAWEI_Mobile-if00-port0:/dev/serial/by-id/usb-HUAWEI_Technology_HUAWEI_Mobile-if00-port0
     volumes:
       - ./configs/gammu_modem_1:/etc/gammu:ro
       - ./scripts:/usr/local/bin:ro
@@ -38,7 +38,7 @@ services:
     container_name: gammu_modem_2
     restart: always
     depends_on:
-      - postgres
+      - mysql
     devices:
       - /dev/ttyUSB1:/dev/ttyUSB1
     volumes:
@@ -50,7 +50,7 @@ services:
       - smsnet
 
 volumes:
-  pgdata:
+  gammu_mysql_data:
 
 networks:
   smsnet:
