@@ -2,18 +2,19 @@ version: '3.8'
 
 services:
 
-  postgres:
-    image: postgres:16
-    container_name: sms_postgres
+ mysql:
+    image: mysql:8.0
+    container_name: gammu_mysql
     restart: always
-    ports:
-      - "5432:5432"  
     environment:
-      POSTGRES_DB: sms
-      POSTGRES_USER: smsuser
-      POSTGRES_PASSWORD: smspass
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: sms
+      MYSQL_USER: smsuser
+      MYSQL_PASSWORD: smspass
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - gammu_mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
     networks:
       - smsnet
 
