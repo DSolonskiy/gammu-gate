@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+
+  postgres:
+    image: postgres:16
+    container_name: sms_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: sms
+      POSTGRES_USER: smsuser
+      POSTGRES_PASSWORD: smspass
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - smsnet
+
+  gammu_modem_1:
+    image: gammu/gammu
+    container_name: gammu_modem_1
+    restart: always
+    depends_on:
+      - postgres
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
+    volumes:
+      - ./configs/gammu_modem_1:/etc/gammu:ro
+      - ./scripts:/usr/local/bin:ro
+    environment:
+      - TZ=Europe/Moscow
+    networks:
+      - smsnet
+
+  gammu_modem_2:
+    image: gammu/gammu
+    container_name: gammu_modem_2
+    restart: always
+    depends_on:
+      - postgres
+    devices:
+      - /dev/ttyUSB1:/dev/ttyUSB1
+    volumes:
+      - ./configs/gammu_modem_2:/etc/gammu:ro
+      - ./scripts:/usr/local/bin:ro
+    environment:
+      - TZ=Europe/Moscow
+    networks:
+      - smsnet
+
+volumes:
+  pgdata:
+
+networks:
+  smsnet:
+    driver: bridge

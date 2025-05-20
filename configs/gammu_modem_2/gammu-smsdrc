@@ -1,0 +1,13 @@
+[gammu]
+device = /dev/ttyUSB1
+connection = at
+
+[smsd]
+Service = sql
+Driver = native_pgsql
+Host = sms_postgres
+User = smsuser
+Password = smspass
+Database = sms
+DeviceID = modem_2
+RunOnReceive = /usr/local/bin/on-receive.sh
