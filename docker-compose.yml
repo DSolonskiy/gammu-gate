@@ -16,7 +16,7 @@ services:
       - smsnet
 
   gammu_modem_1:
-    image: gammu/gammu
+    image: urielch/gammu:lastest
     container_name: gammu_modem_1
     restart: always
     depends_on:
@@ -32,7 +32,7 @@ services:
       - smsnet
 
   gammu_modem_2:
-    image: gammu/gammu
+    image: urielch/gammu:lastest
     container_name: gammu_modem_2
     restart: always
     depends_on:
