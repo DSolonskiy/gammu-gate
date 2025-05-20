@@ -1,5 +1,5 @@
 [gammu]
-device = /dev/ttyUSB0
+device = /dev/serial/by-id/usb-HUAWEI_Technology_HUAWEI_Mobile-if00-port0
 connection = at
 
 [smsd]
