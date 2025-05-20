@@ -6,6 +6,8 @@ services:
     image: postgres:16
     container_name: sms_postgres
     restart: always
+    ports:
+      - "5432:5432"  
     environment:
       POSTGRES_DB: sms
       POSTGRES_USER: smsuser
