@@ -11,3 +11,5 @@ Password = smspass
 Database = sms
 DeviceID = modem_1
 RunOnReceive = /usr/local/bin/on-receive.sh
+debuglevel = 255
+PhoneId = sim10
