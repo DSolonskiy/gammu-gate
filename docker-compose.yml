@@ -22,7 +22,7 @@ services:
     depends_on:
       - postgres
     devices:
-      - /dev/ttyUSB0:/dev/ttyUSB0
+         - /dev/serial/by-id/usb-HUAWEI_Technology_HUAWEI_Mobile-if00-port0:/dev/serial/by-id/usb-HUAWEI_Technology_HUAWEI_Mobile-if00-port0
     volumes:
       - ./configs/gammu_modem_1:/etc/gammu:ro
       - ./scripts:/usr/local/bin:ro
