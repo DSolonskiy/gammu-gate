@@ -21,6 +21,7 @@ services:
     image: tomaszrim/gammu
     container_name: gammu_modem_1
     restart: always
+    privileged: true
     depends_on:
       - mysql
     devices:
