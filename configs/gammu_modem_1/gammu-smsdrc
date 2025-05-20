@@ -5,7 +5,7 @@ connection = at
 [smsd]
 Service = sql
 Driver = native_pgsql
-Host = sms_postgres
+Host = 172.18.0.2
 User = smsuser
 Password = smspass
 Database = sms
