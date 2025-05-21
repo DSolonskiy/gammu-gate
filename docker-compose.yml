@@ -25,8 +25,7 @@ services:
     depends_on:
       - mysql
     devices:
-       - /dev/ttyUSB0:/dev/ttyUSB0
-       - /dev/serial/by-id/usb-HUAWEI_Technology_HUAWEI_Mobile-if00-port0:/dev/serial/by-id/usb-HUAWEI_Technology_HUAWEI_Mobile-if00-port0
+       - /dev/serial/by-id/usb-HUAWEI_Technology_HUAWEI_Mobile-if00-port0:/dev/modem1
     volumes:
       - ./configs/gammu_modem_1:/etc/gammu:ro
       - ./scripts:/usr/local/bin:ro
