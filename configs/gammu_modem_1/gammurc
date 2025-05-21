@@ -1,0 +1,3 @@
+[gammu]
+port = /dev/modem1
+connection = at
